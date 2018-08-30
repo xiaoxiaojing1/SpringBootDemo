@@ -15,11 +15,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @EnableAutoConfiguration  //两行注释说明将该类托管到spring中
 public class SampleController {
 
-    @RequestMapping("/")
-    @ResponseBody
+    @RequestMapping("/")  //注释请求的地址以及方法
+    @ResponseBody         //注释响应体
     String home(){return "Hello world!";}
 
     public static void main(String[] args) throws Exception {
-        SpringApplication.run(SampleController.class,args);
+        SpringApplication.run(SampleController.class,args);  //入口类：固定写法
     }
 }
