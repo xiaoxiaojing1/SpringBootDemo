@@ -1,5 +1,7 @@
 package com.chapter10.class3;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.Cookie;
@@ -13,16 +15,17 @@ import java.util.Objects;
  * Created by xiaoxiaojing on 2018/8/30.
  */
 
+@Api(value="/",description = "这是所有的get方法")
 @RestController  //告诉@ComponentScan当前类可被扫描
 public class MyGetMethod {
 
-    //注释请求的地址以及方法
-    @RequestMapping(value = "/getcookies",method = RequestMethod.GET)
+    @ApiOperation(value = "通过这个方法可以获取到cookies",httpMethod = "GET")
+    @RequestMapping(value = "/getcookies",method = RequestMethod.GET)  //注释请求的地址以及方法
     /* 注意response不是参数，默认将res写在此处后会返回给页面 */
     public String getCookies(HttpServletResponse response){
 
-        //HttpServerletRequest 装请求信息的类
-        //HttpServerletResponse  装响应信息的类
+        //HttpServletRequest 装请求信息的类
+        //HttpServletResponse  装响应信息的类
 
         Cookie cookie = new Cookie("login","true");
         Cookie cookie1 = new Cookie("logincode","1");
